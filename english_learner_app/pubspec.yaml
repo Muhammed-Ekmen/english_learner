@@ -36,10 +36,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  # StateManagement
+  
+  # STATEMANAGEMENT
   get: ^4.6.5
+
   # UI
   lottie: ^2.1.0
+  font_awesome_flutter: ^10.3.0
+  animated_text_kit: ^4.2.2
+
+  #STORAGE
   get_storage: ^2.0.3
 
 dev_dependencies:
@@ -95,5 +101,15 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Oswald 
+      fonts:
+        - asset: assets/fonts/Oswald/static/Oswald-Bold.ttf
+        - asset: assets/fonts/Oswald/static/Oswald-ExtraLight.ttf
+        - asset: assets/fonts/Oswald/static/Oswald-Light.ttf
+        - asset: assets/fonts/Oswald/static/Oswald-Medium.ttf
+        - asset: assets/fonts/Oswald/static/Oswald-Regular.ttf
+        - asset: assets/fonts/Oswald/static/Oswald-SemiBold.ttf
+  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

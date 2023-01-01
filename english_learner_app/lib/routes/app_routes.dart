@@ -1,25 +1,17 @@
+import 'package:english_learner_app/ui/home/view/home.dart';
+import 'package:english_learner_app/ui/login/view/login.dart';
 import 'package:english_learner_app/ui/on_board/view/on_board.dart';
+import 'package:english_learner_app/ui/sign_in/view/sign_in.dart';
 import 'package:english_learner_app/ui/splash/view/splash.dart';
+import 'package:english_learner_app/utils/extensions.dart';
 import 'package:get/get.dart';
 
-class BaseRoutes {
-  BaseRoutes._();
-
-  static final BaseRoutes _route = BaseRoutes._();
-  static BaseRoutes get instance => _route;
-
-  List<GetPage<dynamic>>? getPages = [
-    GetPage(name: AppScreens.splash.to(), page: () => const SplashScreen()),
-    GetPage(name: AppScreens.onBoard.to(), page: () => const OnBoardScreen()),
+mixin BaseRoutes {
+  final List<GetPage<dynamic>>? getPages = [
+    GetPage(name: AppScreens.splash.to, page: () => SplashScreen()),
+    GetPage(name: AppScreens.onBoard.to, page: () => OnBoardScreen()),
+    GetPage(name: AppScreens.login.to, page: () => LoginScreen()),
+    GetPage(name: AppScreens.signIn.to, page: () => SignInScreen()),
+    GetPage(name: AppScreens.home.to, page: () => HomeScreen())
   ];
-}
-
-enum AppScreens {
-  splash,
-  onBoard,
-  home,
-}
-
-extension AppScreensExtension on AppScreens {
-  to() => "/$name";
 }
