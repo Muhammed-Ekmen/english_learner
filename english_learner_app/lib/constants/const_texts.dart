@@ -32,7 +32,7 @@ class ConstTexts {
   final String goodDay = "Good Day  ";
   final String menu = "Menu";
   final String review = "Review";
-  final String progresCardDescription = "The journey of a thousand miles begins with one step.asdasdnajksdnkabsdjhabasjhdbajhsdbjahsbdaskbdahsbds";
+  final String progresCardDescription = "The journey of a thousand miles begins with one step.";
   final String reviewYourProgress = "Review Your Progress";
   final String allRightsReserves = "All Rights Reserved...";
   final String wordOfTheDay = "Word Of The Day";
