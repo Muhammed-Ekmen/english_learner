@@ -1,4 +1,4 @@
-import 'package:english_learner_app/utils/extensions.dart';
+import 'package:english_learner_app/tools/enums.dart';
 import 'package:get_storage/get_storage.dart';
 
 class CoreStorage {

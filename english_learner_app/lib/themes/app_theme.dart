@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-mixin AppTheme {
+abstract class AppTheme {
   ThemeData? customTheme = ThemeData(
     fontFamily: "Oswald",
     scaffoldBackgroundColor: Colors.transparent,
