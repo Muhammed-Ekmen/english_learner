@@ -50,10 +50,7 @@ class HomeViewModel extends GetxController {
   profileImageOnTap() {}
   menuCardOnTap() {
     Get.dialog(
-      DominoAlert(
-        index: pointerIndexValue.value,
-        onTap: () => _detechDominoAlertRoute(index: pointerIndexValue.value),
-      ),
+      DominoAlert(index: pointerIndexValue.value, onTap: () => _detechDominoAlertRoute(index: pointerIndexValue.value)),
       barrierColor: IColors.athensGray.apply,
       transitionCurve: Curves.linear,
       transitionDuration: IDurations.demi.adjust,
@@ -62,11 +59,10 @@ class HomeViewModel extends GetxController {
   }
 
   close() => IRoutes.login.go;
-
   _detechDominoAlertRoute({int? index}) {
     switch (index) {
       case 0:
-        return IRoutes.home.go;
+        return IRoutes.read.go;
       default:
         return IRoutes.home.go;
     }

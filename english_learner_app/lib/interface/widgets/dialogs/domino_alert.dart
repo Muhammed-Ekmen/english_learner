@@ -39,7 +39,7 @@ class DominoAlert extends StatelessWidget {
                   child: RegularButton(
                     height: Get.height / 18,
                     righDirection: true,
-                    onTap: () {},
+                    onTap: onTap,
                     title: ConstTexts.intance.go,
                     icon: FontAwesomeIcons.champagneGlasses,
                   ),
