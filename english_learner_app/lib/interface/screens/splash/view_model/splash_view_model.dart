@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class SplashViewModel extends GetxController {
   firstRunCheck() async {
-    await Future.delayed(IDurations.high.apply);
+    await Future.delayed(IDurations.tall.adjust);
     SuperVisor.shared.firstRun(
       firstRun: IRoutes.onBoard.go,
       notFirstRun: CoreStorage.instance.read(key: CoreStorageKeys.isLogin) == null ? IRoutes.login.go : IRoutes.home.go,

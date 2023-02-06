@@ -12,30 +12,40 @@ class SignInScreen extends StatelessWidget with IShaderMask {
   SignInScreen({super.key});
   final SignInViewModel _signInViewModel = Get.put(SignInViewModel());
   @override
-  Widget build(BuildContext context) => WillPopScope(onWillPop: IDeviceBehaviour.back.setUp, child: Scaffold(body: customShaderMask(shaderBody: CustomScrollView(slivers: [_sliverFillRemain]))));
+  Widget build(BuildContext context) => WillPopScope(
+        onWillPop: IDeviceBehaviour.back.setUp,
+        child: Scaffold(body: customShaderMask(shaderBody: _customScrollView)),
+      );
 
-  get _sliverFillRemain => SliverFillRemaining(
-        hasScrollBody: false,
-        child: Padding(
-          padding: IMeasures.screenOrientation.adjust,
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [titleAndSubtitle, emailPassordTextFields, buttons]),
-        ),
+  get _customScrollView => CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Padding(
+              padding: IMeasures.screenOrientation.adjust,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [titleAndSubtitle, emailPassordTextFields, buttons],
+              ),
+            ),
+          ),
+        ],
       );
 
   get titleAndSubtitle => Column(
         children: [
-          Text(ConstTexts.intance.createAnAccount, style: ITextStyles.grande.apply),
-          FittedBox(alignment: Alignment.center, fit: BoxFit.fitWidth, child: Text(ConstTexts.intance.verificationEmail.capitalize ?? "", style: ITextStyles.demi.apply)),
+          FittedBox(child: Text(ConstTexts.intance.createAnAccount, style: ITextStyles.grande.apply)),
+          FittedBox(alignment: Alignment.center, fit: BoxFit.fitWidth, child: Text(ConstTexts.intance.verificationEmail.capitalize ?? "", style: ITextStyles.short.apply)),
         ],
       );
 
   get emailPassordTextFields => Column(
         children: [
           Align(alignment: Alignment.centerLeft, child: Text(ConstTexts.intance.email, style: ITextStyles.tall.apply)),
-          const UserInfoTextField(typeKey: UserInfoTextFieldKey.email),
+          UserInfoTextField(typeKey: UserInfoTextFieldKey.email, margin: EdgeInsets.symmetric(vertical: Get.height / 100)),
           Align(alignment: Alignment.centerLeft, child: Text(ConstTexts.intance.password, style: ITextStyles.tall.apply)),
-          const UserInfoTextField(typeKey: UserInfoTextFieldKey.password),
-          divider,
+          UserInfoTextField(typeKey: UserInfoTextFieldKey.password, margin: EdgeInsets.symmetric(vertical: Get.height / 100)),
+          ITools.divider.call,
         ],
       );
 
@@ -46,6 +56,4 @@ class SignInScreen extends StatelessWidget with IShaderMask {
           Expanded(flex: 12, child: RegularButton(onTap: _signInViewModel.createOnTap, title: ConstTexts.intance.create, backGorundColor: IColors.rossoCorsa.apply, icon: FontAwesomeIcons.creativeCommonsBy, righDirection: true)),
         ],
       );
-
-  get divider => Divider(height: 15, color: IColors.athensGray.apply, thickness: 4);
 }

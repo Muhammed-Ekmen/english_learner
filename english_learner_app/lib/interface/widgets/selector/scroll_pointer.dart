@@ -20,7 +20,11 @@ class Scrollpointer extends StatelessWidget {
               decoration: IBoxDecoration.header.glassAppearance.copyWith(
                 border: Border.all(width: 0.5),
                 borderRadius: BorderRadius.zero,
-                color: SuperVisor.shared.binaryCondition(condition: index == pointerIndex.value, convenient: IColors.deepRacingGreen.apply.withOpacity(0.7), inconvenient: IColors.athensGray.apply.withOpacity(0.5)),
+                color: SuperVisor.shared.binaryCondition(
+                  condition: index == pointerIndex.value,
+                  convenient: IColors.deepRacingGreen.apply.withOpacity(0.7),
+                  inconvenient: IColors.athensGray.apply.withOpacity(0.5),
+                ),
               ),
             ),
           ),

@@ -131,13 +131,15 @@ extension PuzzleMenuItemsExtension on PuzzleMenuItems {
 }
 
 extension IDurationExt on IDurations {
-  Duration get apply {
+  Duration get adjust {
     switch (this) {
-      case IDurations.low:
+      case IDurations.grande:
         return const Duration(milliseconds: 250);
-      case IDurations.medium:
+      case IDurations.demi:
         return const Duration(milliseconds: 500);
-      case IDurations.high:
+      case IDurations.short:
+        return const Duration(seconds: 2);
+      case IDurations.tall:
         return const Duration(seconds: 5);
       default:
         return const Duration();
@@ -160,6 +162,16 @@ extension SupportedPlatformExt on SupportedPlatforms {
   }
 }
 
+extension IToolsExt on ITools {
+  get call {
+    switch (this) {
+      case ITools.divider:
+        return Divider(height: 0, color: IColors.athensGray.apply, thickness: 2);
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+}
 
 // extension SuperVisorExtension on SuperVisorTrial {
 //   get process => {

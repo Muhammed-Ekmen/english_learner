@@ -8,9 +8,9 @@ class OnBoardViewModel extends GetxController {
   RxInt currentPage = RxInt(0);
   void next() => SuperVisor.shared.binaryCondition(
         condition: currentPage == 2,
-        inconvenient: pageCtrl.nextPage(duration: IDurations.medium.apply, curve: Curves.linear),
+        inconvenient: pageCtrl.nextPage(duration: IDurations.demi.adjust, curve: Curves.linear),
         convenient: IRoutes.login.go,
       );
-  void previous() => pageCtrl.previousPage(duration: IDurations.medium.apply, curve: Curves.linear);
+  void previous() => pageCtrl.previousPage(duration: IDurations.demi.adjust, curve: Curves.linear);
   void onPageChanged(value) => currentPage.value = value;
 }

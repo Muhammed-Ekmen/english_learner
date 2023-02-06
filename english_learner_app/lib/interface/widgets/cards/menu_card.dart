@@ -1,3 +1,4 @@
+import 'package:english_learner_app/interface/widgets/cards/domino_card.dart';
 import 'package:english_learner_app/utils/tools/custom_decorations.dart';
 import 'package:english_learner_app/utils/tools/enums.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class MenuCard extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
         onTap: onPressed,
         child: SizedBox(
-          height: height ?? Get.height / 3,
+          height: height ?? Get.height / 3.5,
           child: RotatedBox(
             quarterTurns: -1,
             child: ListWheelScrollView.useDelegate(
@@ -33,20 +34,19 @@ class MenuCard extends StatelessWidget {
   ListWheelChildBuilderDelegate get _listWheelChildBuilderDelegate => ListWheelChildBuilderDelegate(
         childCount: PuzzleMenuItems.values.length,
         builder: (context, index) => AnimatedContainer(
-          duration: IDurations.medium.apply,
+          duration: IDurations.demi.adjust,
           margin: const EdgeInsets.all(15),
           decoration: IBoxDecoration.header.glassAppearance,
-          child: RotatedBox(quarterTurns: 1, child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [_blackIcon(index), const Icon(FontAwesomeIcons.grip, size: 15)])),
+          child: RotatedBox(
+            quarterTurns: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                DominoCard(index: index),
+                const Icon(FontAwesomeIcons.grip, size: 15),
+              ],
+            ),
+          ),
         ),
       );
-
-  Container _blackIcon(int index) => Container(
-        width: Get.width,
-        height: Get.height / 4,
-        margin: EdgeInsets.all(Get.width / 30),
-        decoration: _iconDecoration,
-        child: Icon(PuzzleMenuItems.values[index].apply, size: Get.height / 10, color: IColors.athensGray.apply, shadows: [BoxShadow(color: IColors.athensGray.apply.withOpacity(0.5), offset: const Offset(5, 5), blurRadius: 12)]),
-      );
-
-  BoxDecoration get _iconDecoration => BoxDecoration(color: IColors.deepRacingGreen.apply, borderRadius: BorderRadius.circular(10), boxShadow: [BoxShadow(color: IColors.deepRacingGreen.apply, offset: const Offset(5, 5), blurRadius: 24)]);
 }

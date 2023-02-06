@@ -75,7 +75,11 @@ class LoginScreen extends StatelessWidget with IShaderMask {
         ],
       );
 
-  get dividerAndOr => Row(children: [Expanded(flex: 6, child: divider), Expanded(flex: 2, child: Text(ConstTexts.intance.or, style: ITextStyles.tall.apply, textAlign: TextAlign.center)), Expanded(flex: 6, child: divider)]);
-
-  get divider => Divider(height: 0, color: IColors.athensGray.apply, thickness: 3);
+  get dividerAndOr => Row(
+        children: [
+          Expanded(flex: 6, child: ITools.divider.call),
+          Expanded(flex: 2, child: Text(ConstTexts.intance.or, style: ITextStyles.tall.apply, textAlign: TextAlign.center)),
+          Expanded(flex: 6, child: ITools.divider.call),
+        ],
+      );
 }

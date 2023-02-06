@@ -28,4 +28,6 @@ enum ITextStyles { demi, short, tall, grande, venti, trenta }
 
 enum PuzzleMenuItems { read, listen, translate, lyric, movie, chat }
 
-enum IDurations { low, medium, high }
+enum IDurations { grande, demi, short, tall }
+
+enum ITools { divider }

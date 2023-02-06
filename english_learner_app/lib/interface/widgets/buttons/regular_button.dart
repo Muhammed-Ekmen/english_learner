@@ -26,12 +26,13 @@ class RegularButton extends StatelessWidget {
             icon: SuperVisor.shared.nullable(willCheck: icon, nil: const SizedBox.shrink(), notNil: Icon(icon, color: foregroundColor ?? IColors.deepRacingGreen.apply)),
             style: _buttonStyle,
             onPressed: onTap,
-            label: FittedBox(child: Text(title ?? ConstTexts.intance.none, style: ITextStyles.tall.apply.copyWith(color: foregroundColor ?? IColors.deepRacingGreen.apply))),
+            label: FittedBox(alignment: Alignment.center, child: Text(title ?? ConstTexts.intance.none, style: ITextStyles.tall.apply.copyWith(color: foregroundColor ?? IColors.deepRacingGreen.apply))),
           ),
         ),
       );
 
   ButtonStyle get _buttonStyle => ButtonStyle(
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(Get.width / 40))),
         elevation: MaterialStateProperty.all(5),
         shadowColor: MaterialStateProperty.all(IColors.athensGray.apply),
         backgroundColor: MaterialStateProperty.resolveWith((states) => states == MaterialState.pressed ? IColors.rossoCorsa.apply : backGorundColor ?? IColors.athensGray.apply),

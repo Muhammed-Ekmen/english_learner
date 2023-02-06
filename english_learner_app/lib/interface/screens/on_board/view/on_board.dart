@@ -27,7 +27,18 @@ class OnBoardScreen extends StatelessWidget with IShaderMask {
         ),
       );
 
-  Widget _itemBuilder(context, index) => Obx(() => Column(children: [const Spacer(flex: 1), Expanded(flex: 5, child: CallLotties.values[index + 1].apply()), _description(index), const Spacer(flex: 2), _backAndNext(), const Spacer(flex: 1)]));
+  Widget _itemBuilder(context, index) => Obx(
+        () => Column(
+          children: [
+            const Spacer(flex: 1),
+            Expanded(flex: 5, child: CallLotties.values[index + 1].apply()),
+            _description(index),
+            const Spacer(flex: 2),
+            _backAndNext(),
+            const Spacer(flex: 1),
+          ],
+        ),
+      );
 
   Expanded _description(int index) => Expanded(
         flex: 3,
@@ -50,7 +61,14 @@ class OnBoardScreen extends StatelessWidget with IShaderMask {
         flex: 1,
         child: Row(
           children: [
-            Expanded(flex: 4, child: SuperVisor.shared.binaryCondition(condition: _onBoardviewModel.currentPage.value != 0, inconvenient: SizedBox.fromSize(), convenient: RegularButton(onTap: _onBoardviewModel.previous, icon: FontAwesomeIcons.backwardStep, title: ConstTexts.intance.previous))),
+            Expanded(
+              flex: 4,
+              child: SuperVisor.shared.binaryCondition(
+                condition: _onBoardviewModel.currentPage.value != 0,
+                inconvenient: const SizedBox.shrink(),
+                convenient: RegularButton(onTap: _onBoardviewModel.previous, icon: FontAwesomeIcons.backwardStep, title: ConstTexts.intance.previous),
+              ),
+            ),
             const Spacer(flex: 1),
             Expanded(
               flex: 6,

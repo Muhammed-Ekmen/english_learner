@@ -37,4 +37,6 @@ class ConstTexts {
   final String allRightsReserves = "All Rights Reserved...";
   final String wordOfTheDay = "Word Of The Day";
   final String quickInfo = "Quick Info";
+  final String back = "Back";
+  final String go = "Go";
 }

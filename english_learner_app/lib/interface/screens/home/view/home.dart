@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget with IShaderMask {
   Widget build(BuildContext context) => Scaffold(
         body: customShaderMask(
           shaderBody: CustomScrollView(
+            physics: const NeverScrollableScrollPhysics(),
             slivers: [
               SliverFillRemaining(
                 hasScrollBody: false,
@@ -27,13 +28,19 @@ class HomeScreen extends StatelessWidget with IShaderMask {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       _magicButtons,
+                      SizedBox(height: Get.height / 40),
                       Text(ConstTexts.intance.menu, style: ITextStyles.tall.apply),
                       ProfileCard(emailOrUsername: "Semih E.", imageOntap: _homeViewModel.profileImageOnTap),
-                      Divider(color: IColors.athensGray.apply, height: 0, thickness: 1),
+                      ITools.divider.call,
+                      SizedBox(height: Get.height / 50),
                       Text(ConstTexts.intance.quickInfo, style: ITextStyles.tall.apply),
                       ProgressCard(reviewButtonOnPressed: _homeViewModel.reviewOnTap),
                       Text(ConstTexts.intance.menu, style: ITextStyles.tall.apply),
-                      MenuCard(scrollCtrl: _homeViewModel.scrollController, onItemChanged: (index) => _homeViewModel.pointerIndexValue.value = index, onPressed: _homeViewModel.menuCardOnTap),
+                      MenuCard(
+                        scrollCtrl: _homeViewModel.scrollController,
+                        onItemChanged: (index) => _homeViewModel.pointerIndexValue.value = index,
+                        onPressed: _homeViewModel.menuCardOnTap,
+                      ),
                       Scrollpointer(pointerIndex: _homeViewModel.pointerIndexValue),
                       Align(alignment: Alignment.center, child: Text(ConstTexts.intance.allRightsReserves, style: ITextStyles.demi.apply)),
                     ],
@@ -45,14 +52,17 @@ class HomeScreen extends StatelessWidget with IShaderMask {
         ),
       );
 
-  get _magicButtons => SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            MagicButton(widthModel: _homeViewModel.redClose, onTap: _homeViewModel.redCloseOnTap, typeKey: MagicButtonKeys.logOut),
-            MagicButton(widthModel: _homeViewModel.yellowInfo, onTap: _homeViewModel.yellowInfoOnTap, typeKey: MagicButtonKeys.info),
-            MagicButton(widthModel: _homeViewModel.greenSetting, onTap: _homeViewModel.greenSettingOnTap, typeKey: MagicButtonKeys.setting),
-          ],
+  get _magicButtons => Padding(
+        padding: EdgeInsets.only(top: Get.height / 50),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              MagicButton(widthModel: _homeViewModel.redClose, onTap: _homeViewModel.redCloseOnTap, typeKey: MagicButtonKeys.logOut, openedOnTap: _homeViewModel.close),
+              MagicButton(widthModel: _homeViewModel.yellowInfo, onTap: _homeViewModel.yellowInfoOnTap, typeKey: MagicButtonKeys.info),
+              MagicButton(widthModel: _homeViewModel.greenSetting, onTap: _homeViewModel.greenSettingOnTap, typeKey: MagicButtonKeys.setting),
+            ],
+          ),
         ),
       );
 }

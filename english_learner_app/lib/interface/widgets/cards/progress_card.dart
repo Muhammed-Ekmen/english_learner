@@ -14,7 +14,7 @@ class ProgressCard extends StatelessWidget {
   Widget build(BuildContext context) => Row(children: [Expanded(flex: 18, child: _wordOfDay), const Spacer(flex: 1), Expanded(flex: 9, child: _reviewProgress)]);
 
   get _wordOfDay => Container(
-        height: Get.height / 5,
+        height: Get.height / 6,
         width: Get.width,
         padding: const EdgeInsets.all(10),
         margin: IMeasures.cardVertical.adjust,

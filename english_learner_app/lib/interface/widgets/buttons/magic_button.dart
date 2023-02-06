@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MagicButton extends StatelessWidget {
-  const MagicButton({super.key, this.onTap, required this.widthModel, required this.typeKey});
+  const MagicButton({super.key, this.onTap, required this.widthModel, required this.typeKey, this.openedOnTap});
   final VoidCallback? onTap;
   final RxDouble widthModel;
   final MagicButtonKeys typeKey;
+  final VoidCallback? openedOnTap;
   @override
   Widget build(BuildContext context) => Obx(
         () => GestureDetector(
@@ -16,7 +17,7 @@ class MagicButton extends StatelessWidget {
           child: AnimatedContainer(
             margin: EdgeInsets.symmetric(horizontal: Get.width / 50),
             alignment: Alignment.center,
-            duration: IDurations.low.apply,
+            duration: IDurations.grande.adjust,
             curve: Curves.easeInOut,
             height: Get.height / 25,
             width: widthModel.value,
@@ -30,12 +31,17 @@ class MagicButton extends StatelessWidget {
   dynamic get _containerChild => SuperVisor.shared.binaryCondition(
         condition: widthModel.value == Get.width / 25,
         convenient: Icon(Icons.circle, color: IColors.deepRacingGreen.apply, size: 8),
-        inconvenient: Row(
-          children: [
-            Icon(typeKey.apply, color: IColors.deepRacingGreen.apply, size: 16),
-            SizedBox(width: Get.width / 50),
-            Text(typeKey.name.capitalize ?? ConstTexts.intance.none, style: ITextStyles.tall.apply.copyWith(color: IColors.deepRacingGreen.apply)),
-          ],
+        inconvenient: GestureDetector(
+          onTap: openedOnTap,
+          child: FittedBox(
+            child: Row(
+              children: [
+                Icon(typeKey.apply, color: IColors.deepRacingGreen.apply, size: 16),
+                SizedBox(width: Get.width / 50),
+                Text(typeKey.name.capitalize ?? ConstTexts.intance.none, style: ITextStyles.tall.apply.copyWith(color: IColors.deepRacingGreen.apply)),
+              ],
+            ),
+          ),
         ),
       );
 }

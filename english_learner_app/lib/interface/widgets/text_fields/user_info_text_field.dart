@@ -6,13 +6,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class UserInfoTextField extends StatelessWidget {
-  const UserInfoTextField({super.key, required this.typeKey, this.suffixIcon, this.suffixOnPressed, this.obscureText});
+  const UserInfoTextField({super.key, required this.typeKey, this.suffixIcon, this.suffixOnPressed, this.obscureText, this.margin});
   final UserInfoTextFieldKey typeKey;
   final IconData? suffixIcon;
   final void Function()? suffixOnPressed;
   final bool? obscureText;
+  final EdgeInsetsGeometry? margin;
   @override
-  Widget build(BuildContext context) => SizedBox(
+  Widget build(BuildContext context) => Container(
+        margin: margin,
         width: Get.width,
         child: TextFormField(
           cursorColor: Colors.black,
