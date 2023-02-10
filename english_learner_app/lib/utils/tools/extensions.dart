@@ -172,16 +172,3 @@ extension IToolsExt on ITools {
     }
   }
 }
-
-// extension SuperVisorExtension on SuperVisorTrial {
-//   get process => {
-//     switch (this) {
-//       case SuperVisorTrial.nullable:
-//         return _nullable;
-//       default:
-//         return null;
-//     }
-//   };
-
-//   _nullable({required dynamic willCheck, dynamic nil, dynamic notNil}) => willCheck == null ? nil : notNil;
-// }
