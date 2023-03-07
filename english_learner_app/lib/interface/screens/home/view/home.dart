@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget with IShaderMask {
                       Text(ConstTexts.intance.menu, style: ITextStyles.tall.apply),
                       ProfileCard(emailOrUsername: "Semih E.", imageOntap: _homeViewModel.profileImageOnTap),
                       ITools.divider.call,
-                      SizedBox(height: Get.height / 50),
+                      SizedBox(height: Get.height / 40),
                       Text(ConstTexts.intance.quickInfo, style: ITextStyles.tall.apply),
                       ProgressCard(reviewButtonOnPressed: _homeViewModel.reviewOnTap),
                       Text(ConstTexts.intance.menu, style: ITextStyles.tall.apply),

@@ -41,10 +41,7 @@ class MenuCard extends StatelessWidget {
             quarterTurns: 1,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                DominoCard(index: index),
-                const Icon(FontAwesomeIcons.grip, size: 15),
-              ],
+              children: [DominoCard(index: index), const Icon(FontAwesomeIcons.grip, size: 15)],
             ),
           ),
         ),

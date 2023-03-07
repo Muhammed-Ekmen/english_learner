@@ -10,7 +10,7 @@ enum CallLotties { google, listening, reading, chat }
 
 enum IColors { rossoCorsa, corduroy, deepRacingGreen, athensGray, pumpkin, greenHaze }
 
-enum IRoutes { splash, onBoard, home, login, signIn, read }
+enum IRoutes { splash, onBoard, home, login, signIn, read, listen, chat, lyric, movie, translate }
 
 enum SupportedPlatforms { apple, google, facebook }
 

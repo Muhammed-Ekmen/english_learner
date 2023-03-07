@@ -75,8 +75,8 @@ class OnBoardScreen extends StatelessWidget with IShaderMask {
               child: RegularButton(
                 onTap: _onBoardviewModel.next,
                 backGorundColor: IColors.rossoCorsa.apply,
-                icon: SuperVisor.shared.binaryCondition(condition: _onBoardviewModel.currentPage != 2, convenient: FontAwesomeIcons.forward, inconvenient: FontAwesomeIcons.forwardFast),
-                title: SuperVisor.shared.binaryCondition(condition: _onBoardviewModel.currentPage != 2, convenient: ConstTexts.intance.next, inconvenient: ConstTexts.intance.done),
+                icon: SuperVisor.shared.binaryCondition(condition: _onBoardviewModel.currentPage.value != 2, convenient: FontAwesomeIcons.forward, inconvenient: FontAwesomeIcons.forwardFast),
+                title: SuperVisor.shared.binaryCondition(condition: _onBoardviewModel.currentPage.value != 2, convenient: ConstTexts.intance.next, inconvenient: ConstTexts.intance.done),
               ),
             ),
           ],

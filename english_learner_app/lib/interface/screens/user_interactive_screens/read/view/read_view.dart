@@ -6,10 +6,10 @@ class ReadView extends StatelessWidget {
   ReadView({super.key});
   final ReadViewModel _readViewModel = Get.put(ReadViewModel());
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => const Scaffold(
         backgroundColor: Colors.white,
         body: Center(
-          child: Text("asdads"),
+          child: Text("read"),
         ),
       );
 }

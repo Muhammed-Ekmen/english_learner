@@ -5,15 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeViewModel extends GetxController {
+  ScrollController scrollController = FixedExtentScrollController(initialItem: 1);
+  RxInt pointerIndexValue = RxInt(1);
+
+  RxDouble redClose = RxDouble(Get.width / 25);
+  RxDouble yellowInfo = RxDouble(Get.width / 25);
+  RxDouble greenSetting = RxDouble(Get.width / 25);
+
   @override
   void onClose() {
     pointerIndexValue.value = 1;
     super.onClose();
   }
-
-  RxDouble redClose = RxDouble(Get.width / 25);
-  RxDouble yellowInfo = RxDouble(Get.width / 25);
-  RxDouble greenSetting = RxDouble(Get.width / 25);
 
   redCloseOnTap() async => SuperVisor.shared.binaryCondition(
         condition: redClose.value == Get.width / 5,
@@ -34,6 +37,7 @@ class HomeViewModel extends GetxController {
           yellowInfo.value = Get.width / 25,
         },
       );
+
   greenSettingOnTap() async => SuperVisor.shared.binaryCondition(
         condition: greenSetting.value == Get.width / 5,
         convenient: {greenSetting.value = Get.width / 25},
@@ -44,10 +48,10 @@ class HomeViewModel extends GetxController {
         },
       );
 
-  ScrollController scrollController = FixedExtentScrollController(initialItem: 1);
-  RxInt pointerIndexValue = RxInt(1);
   reviewOnTap() {}
+
   profileImageOnTap() {}
+
   menuCardOnTap() {
     Get.dialog(
       DominoAlert(index: pointerIndexValue.value, onTap: () => _detechDominoAlertRoute(index: pointerIndexValue.value)),
@@ -59,12 +63,17 @@ class HomeViewModel extends GetxController {
   }
 
   close() => IRoutes.login.go;
+
   _detechDominoAlertRoute({int? index}) {
     switch (index) {
       case 0:
-        return IRoutes.read.go;
+        IRoutes.read.go;
+        break;
+      case 1:
+        IRoutes.listen.go;
+        break;
       default:
-        return IRoutes.home.go;
+        Get.snackbar("Error", "index $index");
     }
   }
 }
